@@ -1,0 +1,20 @@
+@page "{id:int}"
+@model AbrigoGerenciamento.Pages.Abrigos.DeleteModel
+@{
+    ViewData["Title"] = "Excluir Abrigo";
+}
+
+<h1>Excluir Abrigo</h1>
+
+<h3>Tem certeza que deseja excluir este abrigo?</h3>
+
+<div>
+    <h4>@Model.Abrigo.Nome</h4>
+    <p>@Model.Abrigo.Cep</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Abrigo.Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

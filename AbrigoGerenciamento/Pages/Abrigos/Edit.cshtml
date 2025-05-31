@@ -1,0 +1,24 @@
+@page "{id:int}"
+@model AbrigoGerenciamento.Pages.Abrigos.EditModel
+@{
+    ViewData["Title"] = "Editar Abrigo";
+}
+
+<h1>Editar Abrigo</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Abrigo.Id" />
+    <div class="form-group">
+        <label asp-for="Abrigo.Nome"></label>
+        <input asp-for="Abrigo.Nome" class="form-control" />
+        <span asp-validation-for="Abrigo.Nome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Abrigo.Endereco"></label>
+        <input asp-for="Abrigo.Endereco" class="form-control" />
+        <span asp-validation-for="Abrigo.Endereco" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-page="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
