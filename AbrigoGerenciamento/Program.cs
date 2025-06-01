@@ -5,7 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Serviços
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations();
+});
+
 builder.Services.AddRazorPages();
 builder.Services.AddControllers(); // caso use controllers
 

@@ -16,6 +16,7 @@
         </PackageReference>
         <PackageReference Include="Oracle.EntityFrameworkCore" Version="9.23.80" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.2" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.2" />
     </ItemGroup>
 
 </Project>

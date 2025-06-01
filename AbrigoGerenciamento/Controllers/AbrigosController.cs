@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Annotations;
 using AbrigoGerenciamento.Data;
 using AbrigoGerenciamento.Models;
 using AbrigoGerenciamento.DTOs;
@@ -18,6 +19,8 @@ public class AbrigosController : ControllerBase
     }
 
     [HttpGet]
+    [SwaggerOperation(Summary = "Lista todos os abrigos.")]
+    [SwaggerResponse(200, "Lista de abrigos retornada com sucesso.")]
     public async Task<ActionResult<IEnumerable<AbrigoReadDto>>> Get()
     {
         var abrigos = await _context.Abrigos
@@ -33,18 +36,35 @@ public class AbrigosController : ControllerBase
         return Ok(abrigos);
     }
 
+    [HttpGet("{id}")]
+    [SwaggerOperation(Summary = "Obtém um abrigo pelo ID.")]
+    [SwaggerResponse(200, "Abrigo retornado com sucesso.")]
+    [SwaggerResponse(404, "Abrigo não encontrado.")]
+    public async Task<ActionResult<AbrigoReadDto>> GetById(int id)
+    {
+        var abrigo = await _context.Abrigos.FindAsync(id);
+        if (abrigo == null)
+            return NotFound();
+
+        var dto = new AbrigoReadDto
+        {
+            Id = abrigo.Id,
+            Nome = abrigo.Nome,
+            Cep = abrigo.Cep
+        };
+
+        return Ok(dto);
+    }
+
     [HttpPost]
-    public async Task<ActionResult<AbrigoReadDto>> PostComLotes(AbrigoCreateComLotesDto dto)
+    [SwaggerOperation(Summary = "Cria um novo abrigo.")]
+    [SwaggerResponse(201, "Abrigo criado com sucesso.")]
+    public async Task<ActionResult<AbrigoReadDto>> Post(AbrigoCreateDto dto)
     {
         var abrigo = new Abrigo
         {
             Nome = dto.Nome,
-            Cep = dto.Cep,
-            LotesAlimentos = dto.LotesAlimentos.Select(l => new LoteAlimento
-            {
-                Nome = l.Nome,
-                Quantidade = l.Quantidade
-            }).ToList()
+            Cep = dto.Cep
         };
 
         _context.Abrigos.Add(abrigo);
@@ -57,8 +77,41 @@ public class AbrigosController : ControllerBase
             Cep = abrigo.Cep
         };
 
-        return CreatedAtAction(nameof(Get), new { id = abrigo.Id }, abrigoReadDto);
+        return CreatedAtAction(nameof(GetById), new { id = abrigo.Id }, abrigoReadDto);
     }
-    
-    
+
+    [HttpPut("{id}")]
+    [SwaggerOperation(Summary = "Atualiza os dados de um abrigo existente.")]
+    [SwaggerResponse(204, "Abrigo atualizado com sucesso.")]
+    [SwaggerResponse(404, "Abrigo não encontrado.")]
+    public async Task<IActionResult> Put(int id, AbrigoCreateDto dto)
+    {
+        var abrigo = await _context.Abrigos.FindAsync(id);
+        if (abrigo == null)
+            return NotFound();
+
+        abrigo.Nome = dto.Nome;
+        abrigo.Cep = dto.Cep;
+
+        _context.Abrigos.Update(abrigo);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    [SwaggerOperation(Summary = "Remove um abrigo pelo ID.")]
+    [SwaggerResponse(204, "Abrigo removido com sucesso.")]
+    [SwaggerResponse(404, "Abrigo não encontrado.")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var abrigo = await _context.Abrigos.FindAsync(id);
+        if (abrigo == null)
+            return NotFound();
+
+        _context.Abrigos.Remove(abrigo);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
 }
