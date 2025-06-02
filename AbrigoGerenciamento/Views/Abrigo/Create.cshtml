@@ -1,0 +1,21 @@
+@model AbrigoGerenciamento.Models.Abrigo
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Cadastrar Novo Abrigo";
+}
+
+<h1>Cadastrar Novo Abrigo</h1>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Cep"></label>
+        <input asp-for="Cep" />
+        <span asp-validation-for="Cep" class="text-danger"></span>
+    </div>
+    <button type="submit">Salvar</button>
+</form>

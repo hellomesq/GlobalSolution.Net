@@ -1,0 +1,86 @@
+@model IEnumerable<AbrigoGerenciamento.Models.Abrigo>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Lista de Abrigos";
+}
+
+<h2 class="mb-4">Abrigos</h2>
+<div class="mb-3">
+    <a asp-controller="Abrigo" asp-action="Create" class="btn btn-primary me-2" style="background-color: #4F556D; color: white; border-color: transparent" >Cadastrar Abrigo</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">Nenhum abrigo cadastrado.</div>
+}
+else
+{
+    <!-- Tabela de Abrigos -->
+    <table class="table table-bordered table-hover mb-5">
+        <thead class="table-dark">
+            <tr>
+                <th>Nome do Abrigo</th>
+                <th>CEP</th>
+                <th style="width: 20%">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var abrigo in Model)
+            {
+                <tr>
+                    <td>@abrigo.Nome</td>
+                    <td>@abrigo.Cep</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@abrigo.Id" class="btn btn-sm me-1" style="background-color: #F4D35E;">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@abrigo.Id" class="btn btn-sm btn-danger" style="background-color: #A72608;">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Tabela de Lotes -->
+    <h3 class="mb-3">Lotes de Alimentos</h3>
+    
+    <div class="mb-3">
+        <a asp-controller="Abrigo" asp-action="CreateLote" class="btn btn-success" style="background-color: #4F556D; color: white; border-color: transparent">Cadastrar Lote</a>
+    </div>
+    
+    @if (Model.SelectMany(a => a.LotesAlimentos).Any())
+    {
+        <table class="table table-bordered table-hover mb-5">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nome do Abrigo</th>
+                    <th>Nome do Lote</th>
+                    <th>Quantidade</th>
+                    <th style="width: 20%">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var abrigo in Model)
+                {
+                    if (abrigo.LotesAlimentos != null)
+                    {
+                        foreach (var lote in abrigo.LotesAlimentos)
+                        {
+                            <tr>
+                                <td>@abrigo.Nome</td>
+                                <td>@lote.Nome</td>
+                                <td>@lote.Quantidade</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@abrigo.Id" class="btn btn-sm me-1" style="background-color: #F4D35E;">Editar</a>
+                                    <a asp-action="Delete" asp-route-id="@abrigo.Id" class="btn btn-sm btn-danger" style="background-color: #A72608;">Excluir</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info">Nenhum lote cadastrado.</div>
+    }
+}

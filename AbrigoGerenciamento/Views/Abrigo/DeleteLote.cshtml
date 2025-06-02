@@ -1,0 +1,11 @@
+@model AbrigoGerenciamento.Models.LoteAlimento
+
+<h2>Excluir Lote de Alimento</h2>
+
+<h4>Tem certeza que deseja excluir o lote: <strong>@Model.Nome</strong>?</h4>
+
+<form asp-action="DeleteLote" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

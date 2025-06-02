@@ -10,8 +10,9 @@ builder.Services.AddSwaggerGen(c =>
     c.EnableAnnotations();
 });
 
-builder.Services.AddRazorPages();
-builder.Services.AddControllers(); // caso use controllers
+// Aqui configuramos o MVC com Razor Views e suporte a TagHelpers
+builder.Services.AddControllersWithViews()
+    .AddRazorRuntimeCompilation();
 
 // Banco de dados
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -30,7 +31,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.MapRazorPages();
-app.MapControllers(); // se estiver usando API com controllers
+// Aqui definimos a rota padrão do MVC
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

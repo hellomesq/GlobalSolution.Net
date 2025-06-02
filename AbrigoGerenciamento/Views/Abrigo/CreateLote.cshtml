@@ -1,0 +1,26 @@
+@model AbrigoGerenciamento.Models.LoteAlimento
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Cadastrar Lote";
+}
+
+<h2>Cadastrar Novo Lote</h2>
+
+<form asp-action="CreateLote" method="post">
+    <div class="mb-3">
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Quantidade" class="form-label"></label>
+        <input asp-for="Quantidade" type="number" class="form-control" />
+        <span asp-validation-for="Quantidade" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="AbrigoId" class="form-label">Abrigo</label>
+        <select asp-for="AbrigoId" class="form-select" asp-items="ViewBag.Abrigos"></select>
+        <span asp-validation-for="AbrigoId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
