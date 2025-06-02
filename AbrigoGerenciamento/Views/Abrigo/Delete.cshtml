@@ -1,11 +1,21 @@
 @model AbrigoGerenciamento.Models.Abrigo
 
-<h2>Excluir Abrigo</h2>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Excluir Abrigo";
+}
 
-<h4>Tem certeza que deseja excluir o abrigo: <strong>@Model.Nome</strong>?</h4>
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <h2 class="card-title text-danger mb-4">Excluir Abrigo</h2>
+            <p class="fs-5">Tem certeza que deseja excluir o abrigo: <strong>@Model.Nome</strong>?</p>
 
-<form asp-action="Delete" method="post">
-    <input type="hidden" asp-for="Id" />
-    <button type="submit" class="btn btn-danger">Excluir</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-</form>
+            <form asp-action="Delete" method="post" class="mt-4">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger me-2">Excluir</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -57,7 +57,7 @@ namespace AbrigoGerenciamento.Migrations
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<int>("Quantidade")
+                    b.Property<int>("Peso")
                         .HasColumnType("NUMBER(10)");
 
                     b.HasKey("Id");

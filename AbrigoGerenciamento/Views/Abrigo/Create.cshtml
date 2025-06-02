@@ -4,18 +4,21 @@
     ViewData["Title"] = "Cadastrar Novo Abrigo";
 }
 
-<h1>Cadastrar Novo Abrigo</h1>
+<h2>Cadastrar Novo Abrigo</h2>
 
 <form asp-action="Create" method="post">
-    <div>
-        <label asp-for="Nome"></label>
-        <input asp-for="Nome" />
+    <div class="mb-3">
+        <label asp-for="Nome" class="form-label"></label>
+        <input asp-for="Nome" class="form-control" />
         <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
-    <div>
-        <label asp-for="Cep"></label>
-        <input asp-for="Cep" />
+
+    <div class="mb-3">
+        <label asp-for="Cep" class="form-label"></label>
+        <input asp-for="Cep" class="form-control" />
         <span asp-validation-for="Cep" class="text-danger"></span>
     </div>
-    <button type="submit">Salvar</button>
+
+    <button type="submit" class="btn text-black" style="background-color: #F4D35E;">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
 </form>

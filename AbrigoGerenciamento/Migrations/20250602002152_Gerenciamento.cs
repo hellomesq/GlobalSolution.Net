@@ -5,7 +5,7 @@
 namespace AbrigoGerenciamento.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Gerenciamento : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,7 +31,7 @@ namespace AbrigoGerenciamento.Migrations
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     Nome = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    Quantidade = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    Peso = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     AbrigoId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>

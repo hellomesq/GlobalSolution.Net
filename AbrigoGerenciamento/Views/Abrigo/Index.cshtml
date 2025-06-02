@@ -53,7 +53,7 @@ else
                 <tr>
                     <th>Nome do Abrigo</th>
                     <th>Nome do Lote</th>
-                    <th>Quantidade</th>
+                    <th>Peso</th>
                     <th style="width: 20%">Ações</th>
                 </tr>
             </thead>
@@ -67,10 +67,11 @@ else
                             <tr>
                                 <td>@abrigo.Nome</td>
                                 <td>@lote.Nome</td>
-                                <td>@lote.Quantidade</td>
+                                <td>@lote.Peso</td>
                                 <td>
-                                    <a asp-action="Edit" asp-route-id="@abrigo.Id" class="btn btn-sm me-1" style="background-color: #F4D35E;">Editar</a>
-                                    <a asp-action="Delete" asp-route-id="@abrigo.Id" class="btn btn-sm btn-danger" style="background-color: #A72608;">Excluir</a>
+                                    <a asp-action="EditLote" asp-controller="Abrigo" asp-route-id="@lote.Id" class="btn btn-sm me-1" style="background-color: #F4D35E;">Editar</a>
+                                    <a asp-action="DeleteLote" asp-controller="Abrigo" asp-route-id="@lote.Id" class="btn btn-sm btn-danger" style="background-color: #A72608;">Excluir</a>
+
                                 </td>
                             </tr>
                         }

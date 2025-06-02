@@ -25,7 +25,7 @@ namespace AbrigoGerenciamento.DTOs
     public class LoteAlimentoCreateDto
     {
         public required string Nome { get; set; }
-        public int Quantidade { get; set; }
+        public int Peso { get; set; }
         public required int AbrigoId { get; set; }
     }
 
@@ -33,13 +33,13 @@ namespace AbrigoGerenciamento.DTOs
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int Quantidade { get; set; }
+        public int Peso { get; set; }
         public int AbrigoId { get; set; }
     }
     
     public class LoteAlimentoUpdateDto
     {
         public required string Nome { get; set; }
-        public int Quantidade { get; set; }
+        public int Peso { get; set; }
     }
 }

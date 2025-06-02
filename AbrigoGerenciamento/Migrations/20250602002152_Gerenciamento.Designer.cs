@@ -11,8 +11,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace AbrigoGerenciamento.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250531034222_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250602002152_Gerenciamento")]
+    partial class Gerenciamento
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,7 +60,7 @@ namespace AbrigoGerenciamento.Migrations
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<int>("Quantidade")
+                    b.Property<int>("Peso")
                         .HasColumnType("NUMBER(10)");
 
                     b.HasKey("Id");

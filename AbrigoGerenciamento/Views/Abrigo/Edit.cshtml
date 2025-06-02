@@ -1,4 +1,8 @@
 @model AbrigoGerenciamento.Models.Abrigo
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Editar Abrigo";
+}
 
 <h2>Editar Abrigo</h2>
 
@@ -17,7 +21,6 @@
         <span asp-validation-for="Cep" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Salvar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn text-black" style="background-color: #F4D35E;">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
 </form>
-

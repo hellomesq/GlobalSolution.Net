@@ -1,4 +1,8 @@
 @model AbrigoGerenciamento.Models.LoteAlimento
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Editar Lote";
+}
 
 <h2>Editar Lote de Alimento</h2>
 
@@ -12,9 +16,9 @@
     </div>
 
     <div class="mb-3">
-        <label asp-for="Quantidade" class="form-label"></label>
-        <input asp-for="Quantidade" class="form-control" />
-        <span asp-validation-for="Quantidade" class="text-danger"></span>
+        <label asp-for="Peso" class="form-label"></label>
+        <input asp-for="Peso" class="form-control" />
+        <span asp-validation-for="Peso" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
@@ -22,6 +26,6 @@
         <select asp-for="AbrigoId" class="form-select" asp-items="ViewBag.Abrigos"></select>
     </div>
 
-    <button type="submit" class="btn btn-primary">Salvar</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn text-black" style="background-color: #F4D35E;">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
 </form>

@@ -13,14 +13,15 @@
         <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Quantidade" class="form-label"></label>
-        <input asp-for="Quantidade" type="number" class="form-control" />
-        <span asp-validation-for="Quantidade" class="text-danger"></span>
+        <label asp-for="Peso" class="form-label"></label>
+        <input asp-for="Peso" type="number" class="form-control" />
+        <span asp-validation-for="Peso" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label asp-for="AbrigoId" class="form-label">Abrigo</label>
         <select asp-for="AbrigoId" class="form-select" asp-items="ViewBag.Abrigos"></select>
         <span asp-validation-for="AbrigoId" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button type="submit" class="btn text-black" style="background-color: #F4D35E; color:black;">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
 </form>

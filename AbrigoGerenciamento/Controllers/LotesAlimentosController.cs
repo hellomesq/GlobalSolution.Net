@@ -31,7 +31,7 @@ public class LotesAlimentosController : ControllerBase
         {
             Id = l.Id,
             Nome = l.Nome,
-            Quantidade = l.Quantidade,
+            Peso = l.Peso,
             AbrigoId = l.AbrigoId
         }).ToList();
 
@@ -52,7 +52,7 @@ public class LotesAlimentosController : ControllerBase
         {
             Id = lote.Id,
             Nome = lote.Nome,
-            Quantidade = lote.Quantidade,
+            Peso = lote.Peso,
             AbrigoId = lote.AbrigoId
         };
 
@@ -76,7 +76,7 @@ public class LotesAlimentosController : ControllerBase
                 {
                     Id = l.Id,
                     Nome = l.Nome,
-                    Quantidade = l.Quantidade,
+                    Peso = l.Peso,
                     AbrigoId = l.AbrigoId
                 }).ToList()
             })
@@ -98,7 +98,7 @@ public class LotesAlimentosController : ControllerBase
         var lote = new LoteAlimento
         {
             Nome = loteCreateDto.Nome,
-            Quantidade = loteCreateDto.Quantidade,
+            Peso = loteCreateDto.Peso,
             AbrigoId = loteCreateDto.AbrigoId
         };
 
@@ -109,7 +109,7 @@ public class LotesAlimentosController : ControllerBase
         {
             Id = lote.Id,
             Nome = lote.Nome,
-            Quantidade = lote.Quantidade,
+            Peso = lote.Peso,
             AbrigoId = lote.AbrigoId
         };
 
@@ -127,7 +127,7 @@ public class LotesAlimentosController : ControllerBase
             return NotFound();
 
         lote.Nome = loteDto.Nome;
-        lote.Quantidade = loteDto.Quantidade;
+        lote.Peso = loteDto.Peso;
 
         _context.LotesAlimentos.Update(lote);
         await _context.SaveChangesAsync();
