@@ -29,7 +29,9 @@ public class AbrigosController : ControllerBase
             {
                 Id = a.Id,
                 Nome = a.Nome,
-                Cep = a.Cep
+                Cep = a.Cep,
+                Email = a.Email,
+                Senha = a.Senha
             })
             .ToListAsync();
 
@@ -50,7 +52,9 @@ public class AbrigosController : ControllerBase
         {
             Id = abrigo.Id,
             Nome = abrigo.Nome,
-            Cep = abrigo.Cep
+            Cep = abrigo.Cep,
+            Email = abrigo.Email,
+            Senha = abrigo.Senha
         };
 
         return Ok(dto);
@@ -64,7 +68,9 @@ public class AbrigosController : ControllerBase
         var abrigo = new Abrigo
         {
             Nome = dto.Nome,
-            Cep = dto.Cep
+            Cep = dto.Cep,
+            Email = dto.Email,
+            Senha = dto.Senha
         };
 
         _context.Abrigos.Add(abrigo);
@@ -74,7 +80,9 @@ public class AbrigosController : ControllerBase
         {
             Id = abrigo.Id,
             Nome = abrigo.Nome,
-            Cep = abrigo.Cep
+            Cep = abrigo.Cep,
+            Email = abrigo.Email,
+            Senha = abrigo.Senha
         };
 
         return CreatedAtAction(nameof(GetById), new { id = abrigo.Id }, abrigoReadDto);
@@ -92,6 +100,8 @@ public class AbrigosController : ControllerBase
 
         abrigo.Nome = dto.Nome;
         abrigo.Cep = dto.Cep;
+        abrigo.Email = dto.Email;
+        abrigo.Senha = dto.Senha;
 
         _context.Abrigos.Update(abrigo);
         await _context.SaveChangesAsync();
@@ -114,4 +124,29 @@ public class AbrigosController : ControllerBase
 
         return NoContent();
     }
+    
+    [HttpPost("login")]
+    [SwaggerOperation(Summary = "Autentica um abrigo com email e senha.")]
+    [SwaggerResponse(200, "Login bem-sucedido.")]
+    [SwaggerResponse(401, "Credenciais inválidas.")]
+    public async Task<ActionResult<AbrigoReadDto>> Login(AbrigoLoginDto dto)
+    {
+        var abrigo = await _context.Abrigos
+            .FirstOrDefaultAsync(a => a.Email == dto.Email && a.Senha == dto.Senha);
+
+        if (abrigo == null)
+            return Unauthorized("Email ou senha inválidos.");
+
+        var abrigoReadDto = new AbrigoReadDto
+        {
+            Id = abrigo.Id,
+            Nome = abrigo.Nome,
+            Cep = abrigo.Cep,
+            Email = abrigo.Email,
+            Senha = abrigo.Senha // Se quiser ocultar, basta remover aqui.
+        };
+
+        return Ok(abrigoReadDto);
+    }
+
 }

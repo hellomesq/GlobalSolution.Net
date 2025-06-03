@@ -9,6 +9,9 @@ namespace AbrigoGerenciamento.Models
         public required string Nome { get; set; }
         public required string Cep { get; set; }
 
+        public required string Email { get; set; }
+        
+        public required string Senha { get; set; }
         public List<LoteAlimento> LotesAlimentos { get; set; } = new();
 
     }

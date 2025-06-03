@@ -5,6 +5,10 @@ namespace AbrigoGerenciamento.DTOs
     {
         public required string Nome { get; set; }
         public required string Cep { get; set; }
+        
+        public required string Email { get; set; }
+        public required string Senha { get; set; }
+        
     }
 
     public class AbrigoReadDto
@@ -12,6 +16,10 @@ namespace AbrigoGerenciamento.DTOs
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Cep { get; set; }
+        
+        public string Email { get; set; }
+        
+        public string Senha { get; set; }
     }
     
     public class AbrigoComLotesReadDto
@@ -42,4 +50,14 @@ namespace AbrigoGerenciamento.DTOs
         public required string Nome { get; set; }
         public int Peso { get; set; }
     }
+    
+  
+
+// DTO para login
+    public class AbrigoLoginDto
+    {
+        public string Email { get; set; }
+        public string Senha { get; set; }
+    }
+
 }

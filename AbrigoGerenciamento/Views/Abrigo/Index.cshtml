@@ -5,6 +5,19 @@
 }
 
 <h2 class="mb-4">Abrigos</h2>
+@if (TempData["LoginSucesso"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["LoginSucesso"]
+    </div>
+}
+@if (TempData["ErroLogin"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErroLogin"]
+    </div>
+}
+
 <div class="mb-3">
     <a asp-controller="Abrigo" asp-action="Create" class="btn btn-primary me-2" style="background-color: #4F556D; color: white; border-color: transparent" >Cadastrar Abrigo</a>
 </div>
@@ -21,6 +34,8 @@ else
             <tr>
                 <th>Nome do Abrigo</th>
                 <th>CEP</th>
+                <th>Email</th>
+                <th>Senha</th>
                 <th style="width: 20%">Ações</th>
             </tr>
         </thead>
@@ -30,6 +45,8 @@ else
                 <tr>
                     <td>@abrigo.Nome</td>
                     <td>@abrigo.Cep</td>
+                    <td>@abrigo.Email</td>
+                    <td>@abrigo.Senha</td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@abrigo.Id" class="btn btn-sm me-1" style="background-color: #F4D35E;">Editar</a>
                         <a asp-action="Delete" asp-route-id="@abrigo.Id" class="btn btn-sm btn-danger" style="background-color: #A72608;">Excluir</a>
@@ -84,4 +101,20 @@ else
     {
         <div class="alert alert-info">Nenhum lote cadastrado.</div>
     }
+    
+    <!-- Tabela de Login -->
+    <h3 class="mb-3 mt-5">Login do Abrigo</h3>
+    <div class="card p-4 mb-5" style="max-width: 400px;">
+        <form asp-action="Login" asp-controller="Abrigo" method="post">
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email</label>
+                <input type="email" name="Email" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label for="Senha" class="form-label">Senha</label>
+                <input type="password" name="Senha" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary" style="background-color: #4F556D; border-color: transparent">Entrar</button>
+        </form>
+    </div>
 }

@@ -11,7 +11,7 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace AbrigoGerenciamento.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250602002152_Gerenciamento")]
+    [Migration("20250603020314_Gerenciamento")]
     partial class Gerenciamento
     {
         /// <inheritdoc />
@@ -36,7 +36,15 @@ namespace AbrigoGerenciamento.Migrations
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
                     b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 

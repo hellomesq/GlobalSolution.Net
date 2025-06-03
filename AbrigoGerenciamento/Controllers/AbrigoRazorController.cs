@@ -202,5 +202,23 @@ namespace AbrigoGerenciamento.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        
+        [HttpPost]
+        public IActionResult Login(string Email, string Senha)
+        {
+            var abrigo = _context.Abrigos
+                .FirstOrDefault(a => a.Email == Email && a.Senha == Senha);
+
+            if (abrigo != null)
+            {
+                // Autenticação (ex: armazenar em sessão ou redirecionar)
+                TempData["LoginSucesso"] = $"Bem-vindo, {abrigo.Nome}!";
+                return RedirectToAction("Index");
+            }
+
+            TempData["ErroLogin"] = "Email ou senha inválidos.";
+            return RedirectToAction("Index");
+        }
+
     }
 }

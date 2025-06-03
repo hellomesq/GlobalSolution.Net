@@ -20,6 +20,19 @@
         <input asp-for="Cep" class="form-control" />
         <span asp-validation-for="Cep" class="text-danger"></span>
     </div>
+    
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label asp-for="Senha" class="form-label"></label>
+        <input asp-for="Senha" class="form-control" />
+        <span asp-validation-for="Senha" class="text-danger"></span>
+    </div>
+
 
     <button type="submit" class="btn text-black" style="background-color: #F4D35E;">Salvar</button>
     <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
