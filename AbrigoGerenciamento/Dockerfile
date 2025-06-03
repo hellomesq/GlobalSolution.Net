@@ -15,9 +15,10 @@ USER appuser
 
 COPY --from=build /app/out ./
 
-EXPOSE 5138
+EXPOSE 80
 
-ENV ASPNETCORE_URLS=http://+:5138
-ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_URLS=http://+:${PORT}
+ENV ASPNETCORE_ENVIRONMENT=Production
+
 
 ENTRYPOINT ["dotnet", "AbrigoGerenciamento.dll"]
