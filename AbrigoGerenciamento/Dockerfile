@@ -1,19 +1,12 @@
-# Imagem base com .NET 9.0 SDK (caso esteja disponível em preview)
-FROM mcr.microsoft.com/dotnet/sdk:9.0-preview AS build
-
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
-
-# Copia o csproj e restaura dependências
-COPY AbrigoGerenciamento/*.csproj ./AbrigoGerenciamento/
-RUN dotnet restore ./AbrigoGerenciamento/AbrigoGerenciamento.csproj
-
+COPY *.csproj ./
+RUN dotnet restore
 
 COPY . .
-RUN dotnet publish ./AbrigoGerenciamento/AbrigoGerenciamento.csproj -c Release -o /out
+RUN dotnet publish -c Release -o /out
 
-# Runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:9.0-preview
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
-COPY --from=build /out .
-
+COPY --from=build /out ./
 ENTRYPOINT ["dotnet", "AbrigoGerenciamento.dll"]
