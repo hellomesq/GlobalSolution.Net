@@ -10,20 +10,9 @@ builder.Services.AddSwaggerGen(c =>
     c.EnableAnnotations();
 });
 
+// Aqui configuramos o MVC com Razor Views e suporte a TagHelpers
 builder.Services.AddControllersWithViews()
     .AddRazorRuntimeCompilation();
-
-// CORS
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader();
-    });
-});
 
 // Banco de dados
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -40,13 +29,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-// ATIVAR CORS
-app.UseCors("AllowAll");
-
 app.UseRouting();
 
-// Rota padrão
+// Aqui definimos a rota padrão do MVC
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
