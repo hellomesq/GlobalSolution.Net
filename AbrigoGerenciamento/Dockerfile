@@ -15,10 +15,10 @@ USER appuser
 
 COPY --from=build /app/out ./
 
-EXPOSE 80
+EXPOSE 5000
 
-ENV ASPNETCORE_URLS=http://+:${PORT}
+# Define a porta que o ASP.NET Core usará dentro do container
+ENV ASPNETCORE_URLS=http://+:5000
 ENV ASPNETCORE_ENVIRONMENT=Production
-
 
 ENTRYPOINT ["dotnet", "AbrigoGerenciamento.dll"]
