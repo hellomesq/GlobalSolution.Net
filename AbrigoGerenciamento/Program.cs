@@ -22,7 +22,9 @@ var app = builder.Build();
 
 // Define a porta da aplicação conforme variável de ambiente PORT (ou 5000 se não definida)
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+app.Urls.Clear();
 app.Urls.Add($"http://*:{port}");
+
 
 // Middlewares
 if (app.Environment.IsDevelopment())
