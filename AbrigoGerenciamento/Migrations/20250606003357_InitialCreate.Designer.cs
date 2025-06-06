@@ -11,8 +11,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace AbrigoGerenciamento.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250603020314_Gerenciamento")]
-    partial class Gerenciamento
+    [Migration("20250606003357_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

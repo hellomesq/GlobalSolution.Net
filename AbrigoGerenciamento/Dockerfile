@@ -1,24 +1,28 @@
+# Etapa de build
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-WORKDIR /app
+WORKDIR /src
 
 COPY *.csproj ./
 RUN dotnet restore
 
 COPY . ./
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o /app/publish
 
+# Etapa de runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine AS runtime
-WORKDIR /app
 
+# Criação de usuário não-root para rodar a aplicação
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
 
-COPY --from=build /app/out ./
+WORKDIR /home/appuser/app
 
+# Porta que a aplicação .NET vai expor
 EXPOSE 5000
 
-# Define a porta que o ASP.NET Core usará dentro do container
 ENV ASPNETCORE_URLS=http://+:5000
 ENV ASPNETCORE_ENVIRONMENT=Production
+
+COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "AbrigoGerenciamento.dll"]
