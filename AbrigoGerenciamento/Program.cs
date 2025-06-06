@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using AbrigoGerenciamento.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddEnvironmentVariables();
 
 // Serviços
 builder.Services.AddEndpointsApiExplorer();
