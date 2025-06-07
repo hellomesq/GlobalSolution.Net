@@ -21,7 +21,7 @@ WORKDIR /home/appuser/app
 EXPOSE 5000
 
 ENV ASPNETCORE_URLS=http://+:5000
-ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_ENVIRONMENT=Development
 
 COPY --from=build /app/publish .
 

@@ -11,7 +11,7 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace AbrigoGerenciamento.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250606003357_InitialCreate")]
+    [Migration("20250607012657_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
