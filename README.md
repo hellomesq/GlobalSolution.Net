@@ -52,16 +52,21 @@ Para apoiar essa solução, criamos uma API RESTful em ASP.NET Core que permite 
    http://localhost:5000/swagger/index.html
    http://localhost:5000/Abrigo
    ```
-
 ---
 ## Diagrama
 
 ---
 ## Testes
+
+Os testes foram realizados via Swagger e Aplicação Razor e incluem:
+
+- Cadastro, edição, listagem e remoção de Abrigos
+- Registro de Lotes vinculados a um Abrigo
+  
 ![image](https://github.com/user-attachments/assets/b03db1e3-8874-4f41-9c69-baeba5079ada)
 ![image](https://github.com/user-attachments/assets/ce0a484c-cbcb-4c6c-a869-4b9884809874)
 
-### Exemplo JSON para POST e PUT
+### Exemplo JSON para POST e PUT (Para abrigo e lote) 
 
 ```json
 {
