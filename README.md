@@ -87,6 +87,10 @@ Os testes foram realizados via Swagger e Aplicação Razor e incluem:
   "peso": 30
 }
 ```
+# Vídeo da solução completa
+
+# Video Pitch
+
 
 # Integrantes 
 - Hellen Marinho Cordeiro, RM 558841
