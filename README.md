@@ -61,6 +61,7 @@ Para apoiar essa solução, criamos uma API RESTful em ASP.NET Core que permite 
 Os testes foram realizados via Swagger e Aplicação Razor e incluem:
 
 - Cadastro, edição, listagem e remoção de Abrigos
+- Cadastro, edição, listagem e remoção de Lotes
 - Registro de Lotes vinculados a um Abrigo
   
 ![image](https://github.com/user-attachments/assets/b03db1e3-8874-4f41-9c69-baeba5079ada)
