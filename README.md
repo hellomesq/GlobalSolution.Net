@@ -59,6 +59,22 @@ Para apoiar essa solução, criamos uma API RESTful em ASP.NET Core que permite 
 ---
 ## Testes
 ![image](https://github.com/user-attachments/assets/b03db1e3-8874-4f41-9c69-baeba5079ada)
+![image](https://github.com/user-attachments/assets/ce0a484c-cbcb-4c6c-a869-4b9884809874)
+
+### Exemplo JSON para POST e PUT
+
+```json
+{
+  "nome": "OngSos",
+  "cep": "09756123",
+  "email": "ongsos@gmail.com",
+  "senha": "ongsos123"
+}
+{
+  "nome": "Lote 1",
+  "peso": 30
+}
+```
 
 
 
