@@ -113,3 +113,8 @@ docker exec -it oracle-db bash
 sqlplus appuser/Oracle123@//localhost:1521/XEPDB1
 ```
 
+# Integrantes 
+- Hellen Marinho Cordeiro, RM 558841
+- Heloisa Alves de Mesquita, RM 559145
+- Júlia Soares Farias dos Santos RM 554609
+
