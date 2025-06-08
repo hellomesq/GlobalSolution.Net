@@ -63,9 +63,10 @@ Os testes foram realizados via Swagger e Aplicação Razor e incluem:
 - Cadastro, edição, listagem e remoção de Abrigos
 - Cadastro, edição, listagem e remoção de Lotes
 - Registro de Lotes vinculados a um Abrigo
+- Login com retorno de sucesso
   
 ![image](https://github.com/user-attachments/assets/b03db1e3-8874-4f41-9c69-baeba5079ada)
-![image](https://github.com/user-attachments/assets/ce0a484c-cbcb-4c6c-a869-4b9884809874)
+![image](https://github.com/user-attachments/assets/fec17539-c640-45db-97c8-0c8a0ce0e2de)
 
 ### Exemplo JSON para POST e PUT (Para abrigo e lote) 
 
