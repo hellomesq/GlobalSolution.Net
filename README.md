@@ -15,4 +15,43 @@ A aplicação foi conteinerizada em uma máquina virtual com Docker, atendendo a
 
 # Aplicação da solução em containers 
 
+### Abrindo o projeto 
+```bash
+# Clone o projeto
+git clone https://github.com/hmarinhoo/ZELUS.GS.Cloud
+cd AbrigoGerenciamento
+```
+
+### Build e push da imagem para Docker Hub
+```bash
+docker build -t hellomesq/abrigogerenciamento:latest .
+docker login
+docker push hellomesq/abrigogerenciamento:latest
+```
+
+### Criação da VM e Deploy na Azure CLI
+```bash
+chmod +x deploy.sh
+./deploy.sh
+```
+```bash
+ssh azureuser@IPDAVM
+Senha: ZelusGs2025!
+```
+
+### Instalar Docker na VM
+```bash
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+```
+
+### Saia e entre novamente da VM
+```bash
+exit
+ssh azureuser@IPDAVM
+Senha: ZelusGs2025!
+```
 
