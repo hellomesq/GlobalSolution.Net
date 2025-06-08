@@ -113,6 +113,20 @@ docker exec -it oracle-db bash
 sqlplus appuser/Oracle123@//localhost:1521/XEPDB1
 ```
 
+### Caso dê erro nas tabelas, apague e crie novamente
+- APAGAR TABELA:
+- ```bash
+  SELECT table_name FROM user_tables;
+  DROP TABLE Abrigos CASCADE CONSTRAINTS;
+  DROP TABLE LotesAlimentos CASCADE CONSTRAINTS;
+  DROP TABLE "__EFMigrationsHistory" CASCADE CONSTRAINTS;
+  ```
+
+- RODAR LOCALMENTE DE NOVO:
+- ```bash
+  dotnet ef database update
+  ```
+  
 # Integrantes 
 - Hellen Marinho Cordeiro, RM 558841
 - Heloisa Alves de Mesquita, RM 559145
