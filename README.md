@@ -1,5 +1,11 @@
 
-# ZELUS - Sistema Inteligente para Monitoramento e Transporte de Alimentos em Abrigos Emergenciais
+# Problematica 
+
+- Durante desastres naturais, como enchentes ou frio extremo, abrigos enfrentam sérias dificuldades na organização e envio de alimentos. A falta de informações em tempo real sobre o estoque, condições de armazenamento e transporte dificulta a tomada de decisão, podendo levar à falta de alimentos ou desperdício devido à deterioração.
+
+# Solução
+
+### ZELUS: Sistema Inteligente para Monitoramento e Transporte de Alimentos em Abrigos Emergenciais
 
 Para apoiar essa solução, criamos uma API RESTful em ASP.NET Core que permite o cadastro, atualização e consulta dos abrigos com relacionamento de lotes de alimentos, facilitando a integração dos sensores IoT e sistemas de gestão.
 ---
@@ -52,9 +58,6 @@ Para apoiar essa solução, criamos uma API RESTful em ASP.NET Core que permite 
    http://localhost:5000/swagger/index.html
    http://localhost:5000/Abrigo
    ```
----
-## Diagrama
-
 ---
 ## Testes
 
