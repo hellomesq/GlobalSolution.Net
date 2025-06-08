@@ -16,6 +16,7 @@ A aplicação foi conteinerizada em uma máquina virtual com Docker, atendendo a
 # Aplicação da solução em containers 
 
 ### Link do Video exemplificando
+https://www.youtube.com/watch?v=s_gESK5a7Xk
 
 ### Abrindo o projeto 
 ```bash
