@@ -1,5 +1,5 @@
 
-# Problematica 
+# Problemática 
 
 Durante desastres naturais, como enchentes ou frio extremo, abrigos enfrentam sérias dificuldades na organização e envio de alimentos. A falta de informações em tempo real sobre o estoque, condições de armazenamento e transporte dificulta a tomada de decisão, podendo levar à falta de alimentos ou desperdício devido à deterioração.
 
