@@ -88,9 +88,10 @@ Os testes foram realizados via Swagger e Aplicação Razor e incluem:
 }
 ```
 # Vídeo da solução completa
+https://www.youtube.com/watch?v=2Oh5AKd_pJ0
 
 # Video Pitch
-
+https://www.youtube.com/watch?v=m_9UzM0HNow
 
 # Integrantes 
 - Hellen Marinho Cordeiro, RM 558841
